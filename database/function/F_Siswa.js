@@ -1,3 +1,4 @@
+const { Op } = require("sequelize")
 const M_Siswa = require("../model/M_Siswa")
 
 exports.F_Siswa_getAll = async (parameter) => {
@@ -63,11 +64,13 @@ exports.F_Siswa_create = async (payload) => {
 exports.F_Siswa_update = async (nisn, payload) => {
     try {
         if(Array.isArray(nisn)) {
-            await Promise.all(nisn.forEach(async value => await M_Siswa.update(payload, {
+            await M_Siswa.update(payload, {
                 where: {
-                    nisn: value
+                    nisn: {
+                        [Op.in]: nisn
+                    }
                 }
-            })))
+            })
         }else{
             await M_Siswa.update(payload, {
                 where: {
@@ -91,11 +94,14 @@ exports.F_Siswa_update = async (nisn, payload) => {
 exports.F_Siswa_delete = async (nisn) => {
     try {
         if(Array.isArray(nisn)) {
-            await Promise.all(nisn.forEach(async value => await M_Siswa.destroy({
+            console.log('array')
+            await M_Siswa.destroy({
                 where: {
-                    nisn: value
+                    nisn: {
+                        [Op.in]: nisn
+                    }
                 }
-            })))
+            })
         }else{
             await M_Siswa.destroy({
                 where: {

@@ -17,7 +17,7 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     id_rombel: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(50),
         allowNull: true
     },
     nama_siswa: {
@@ -69,11 +69,11 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     status_anak: {
-        type: DataTypes.INTEGER(2),
+        type: DataTypes.STRING(25),
         allowNull: true
     },
     jml_saudara: {
-        type: DataTypes.INTEGER(2),
+        type: DataTypes.STRING(2),
         allowNull: true
     },
     alamat_email_siswa: {
@@ -97,7 +97,7 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     foto: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     nik: {
@@ -109,7 +109,7 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     alat_transport: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     tinggi_badan: {
@@ -137,7 +137,7 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     cita_cita: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     anak_ke_berapa: {
@@ -149,83 +149,83 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     nama_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     no_telp_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(13),
         allowNull: true
     },
     kebutuhan_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     pekerjaan_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     pendidikan_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     penghasilan_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     nama_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     no_telp_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(13),
         allowNull: true
     },
     kebutuhan_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     pekerjaan_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     pendidikan_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     penghasilan_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     nama_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     kebutuhan_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     no_telp_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(13),
         allowNull: true
     },
     pekerjaan_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     pendidikan_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     penghasilan_wali: {
-        type: DataTypes.FLOAT(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     hubungan_wali: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(50),
         allowNull: true
     },
     nik_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     tempat_lahir_ayah: {
@@ -233,31 +233,31 @@ const M_Siswa = db.define('data_siswa', {
         allowNull: true
     },
     tanggal_lahir_ayah: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(12),
         allowNull: true
     },
     nik_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     tempat_lahir_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     tanggal_lahir_ibu: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(12),
         allowNull: true
     },
     nik_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(20),
         allowNull: true
     },
     tempat_lahir_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(30),
         allowNull: true
     },
     tanggal_lahir_wali: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(12),
         allowNull: true
     },
     aktif: {

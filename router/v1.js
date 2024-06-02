@@ -2,7 +2,7 @@ const express = require('express')
 const { F_Akun_getAll, F_Akun_get, F_Akun_update, F_Akun_delete, F_Akun_create } = require('../database/function/F_Akun')
 const { validateBody } = require('../middleware')
 const { encryptData } = require('../libs/encryptor')
-const { F_Siswa_getAll, F_Siswa_create, F_Siswa_update, F_Siswa_delete } = require('../database/function/F_Siswa')
+const { F_Siswa_getAll, F_Siswa_create, F_Siswa_update, F_Siswa_delete, F_Siswa_get } = require('../database/function/F_Siswa')
 
 const route_v1 = express.Router()
 
@@ -101,6 +101,7 @@ const route_v1 = express.Router()
     try {
 
         const id_akun = await req.body.id_akun
+        console.log(id_akun)
 
         const response = await F_Akun_delete(id_akun)
 
@@ -147,6 +148,40 @@ const route_v1 = express.Router()
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
             tipe: 'DATABASE ERROR'
         })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            tipe: 'INTERNAL SERVER'
+        })
+    }
+})
+
+.get('/v1/data/siswa/nisn/:nisn', async (req, res) => {
+    try {
+        const nisn = req.params.nisn
+        const filters = req.query.filters
+
+        let response;
+
+        if(!filters) {
+            response = await F_Siswa_get({nisn})
+        }else{
+            response = await F_Siswa_get({nisn, ...filters})
+        }
+
+
+        if(response.success) {
+            return res.status(200).json({
+                data: response.data
+            })
+        }
+
+        return res.status(400).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            tipe: 'DATABASE ERROR'
+        })
+        
     } catch (error) {
         console.log(error)
         return res.status(500).json({
@@ -212,6 +247,7 @@ const route_v1 = express.Router()
     try {
 
         const nisn = await req.body.nisn
+        console.log(nisn)
 
         const response = await F_Siswa_delete(nisn)
 
