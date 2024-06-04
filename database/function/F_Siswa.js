@@ -1,4 +1,4 @@
-const { Op } = require("sequelize")
+const { Op, Sequelize } = require("sequelize")
 const M_Siswa = require("../model/M_Siswa")
 
 exports.F_Siswa_getAll = async (parameter) => {
@@ -113,6 +113,24 @@ exports.F_Siswa_delete = async (nisn) => {
         return {
             success: true
         }
+    } catch (error) {
+        console.log(error)
+        return {
+            success: false,
+            message: error.message
+        }
+    }
+}
+
+exports.F_Siswa_count = async (parameter) => {
+    try {
+
+        const amount = await M_Siswa.count({
+            where: parameter
+        })
+
+        return amount
+        
     } catch (error) {
         console.log(error)
         return {

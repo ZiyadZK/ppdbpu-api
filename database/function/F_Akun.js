@@ -110,3 +110,18 @@ exports.F_Akun_delete = async (id_akun) => {
         }        
     }
 }
+
+exports.F_Akun_count = async (parameter) => {
+    try {
+        
+        
+        return {
+            success: true
+        }
+    } catch (error) {
+        console.log(error)
+        return {
+            success: false
+        } 
+    }
+}

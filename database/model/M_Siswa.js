@@ -269,6 +269,10 @@ const M_Siswa = db.define('data_siswa', {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false
+    },
+    tahap: {
+        type: DataTypes.STRING(1),
+        allowNull: false
     }
 }, {
     timestamps: true,
