@@ -4,8 +4,15 @@ const { validateBody } = require('../middleware')
 const { encryptData } = require('../libs/encryptor')
 const { F_Siswa_getAll, F_Siswa_create, F_Siswa_update, F_Siswa_delete, F_Siswa_get, F_Siswa_count } = require('../database/function/F_Siswa')
 const { arrObj_countKey } = require('../libs/objectHandler')
+const { F_Riwayat_getAll, F_Riwayat_create, F_Riwayat_delete } = require('../database/function/F_Riwayat')
 
 const route_v1 = express.Router()
+
+.get('/', (req, res) => {
+    return res.status(200).json({
+        message: 'PPDB API is Connected!'
+    })
+})
 
 .get('/v1', (req, res) => {
     return res.status(200).json({
@@ -15,7 +22,7 @@ const route_v1 = express.Router()
 
 .get('/v1/data', (req, res) => {
     return res.status(200).json({
-        message: 'PPDB API v1 is Connected!'
+        message: 'PPDB API of Data v1 is Connected!'
     })
 })
 
@@ -32,6 +39,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -58,6 +66,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -86,6 +95,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -102,7 +112,6 @@ const route_v1 = express.Router()
     try {
 
         const id_akun = await req.body.id_akun
-        console.log(id_akun)
 
         const response = await F_Akun_delete(id_akun)
 
@@ -114,6 +123,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -147,6 +157,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
     } catch (error) {
@@ -180,6 +191,7 @@ const route_v1 = express.Router()
 
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -206,6 +218,7 @@ const route_v1 = express.Router()
 
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
     } catch (error) {
@@ -233,6 +246,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
     } catch (error) {
@@ -260,6 +274,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
     } catch (error) {
@@ -287,6 +302,7 @@ const route_v1 = express.Router()
         
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
         
@@ -372,7 +388,7 @@ const route_v1 = express.Router()
                         total_terdaftar_transport_sepeda: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'SEPEDA').length
                     }
                 })
-                
+
 
                 return res.status(200).json({
                     data: response
@@ -387,6 +403,85 @@ const route_v1 = express.Router()
 
         return res.status(400).json({
             message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: responseSiswa.message,
+            tipe: 'DATABASE ERROR'
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            tipe: 'INTERNAL SERVER'
+        })
+    }
+})
+
+// LOG RIWAYAT
+.get('/v1/data/riwayat', async (req, res) => {
+    try {
+        const response = await F_Riwayat_getAll()
+        if(response.success) {
+            return res.status(200).json({
+                data: response.data
+            })
+        }
+        
+        return res.status(400).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
+            tipe: 'DATABASE ERROR'
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            tipe: 'INTERNAL SERVER'
+        })
+    }
+})
+
+.post('/v1/data/riwayat', validateBody, async (req, res) => {
+    try {
+        const payload = await req.body
+
+        const response = await F_Riwayat_create(payload)
+
+        if(response.success) {
+            return res.status(200).json({
+                message: 'Berhasil membuat log!'
+            })
+        }
+
+        return res.status(400).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
+            tipe: 'DATABASE ERROR'
+        })
+        
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            tipe: 'INTERNAL SERVER'
+        })
+    }
+})
+
+.delete('/v1/data/riwayat', validateBody, async (req, res) => {
+    try {
+
+        const id_riwayat = await req.body.id_riwayat
+
+        const response = await F_Riwayat_delete(id_riwayat)
+
+        if(response.success) {
+            return res.status(200).json({
+                message: 'Berhasil menghapus data riwayat!'
+            })
+        }
+        
+        return res.status(400).json({
+            message: 'Terdapat error saat memproses data, hubungi Administrator data',
+            error_message: response.message,
             tipe: 'DATABASE ERROR'
         })
     } catch (error) {
