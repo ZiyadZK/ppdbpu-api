@@ -96,6 +96,10 @@ const M_Siswa = db.define('data_siswa', {
         type: DataTypes.STRING(50),
         allowNull: true
     },
+    keterangan_kategori: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+    },
     foto: {
         type: DataTypes.STRING(20),
         allowNull: true
