@@ -333,9 +333,9 @@ const route_v1 = express.Router()
                         total_terdaftar: dataTahun[tahun],
                         total_daftarUlang: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).length,
                         total_terdaftar_tahap1: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tahap'] == 1).length,
-                        total_daftarUlang_tahap1: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tahap'] == 1).length,
+                        total_daftarUlang_tahap1: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tahap'] == 1).length,
                         total_terdaftar_tahap2: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tahap'] == 2).length,
-                        total_daftarUlang_tahap1: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tahap'] == 2).length,
+                        total_daftarUlang_tahap2: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tahap'] == 2).length,
 
                         total_terdaftar_tkj: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI').length,
                         total_terdaftar_dpib: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'DESAIN PEMODELAN DAN INFORMASI BANGUNAN').length,
