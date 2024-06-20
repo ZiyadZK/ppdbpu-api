@@ -337,12 +337,12 @@ const route_v1 = express.Router()
                         total_terdaftar_tahap2: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tahap'] == 2).length,
                         total_daftarUlang_tahap2: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tahap'] == 2).length,
 
-                        total_terdaftar_tkj: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI').length,
-                        total_terdaftar_dpib: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'DESAIN PEMODELAN DAN INFORMASI BANGUNAN').length,
-                        total_terdaftar_geo: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK GEOSPASIAL').length,
-                        total_terdaftar_tkr: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK OTOMOTIF').length,
-                        total_terdaftar_titl: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK KETENAGALISTRIKAN').length,
-                        total_terdaftar_tpm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['id_rombel'] == 'TEKNIK MESIN').length,
+                        total_terdaftar_tkj: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI').length,
+                        total_terdaftar_dpib: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'DESAIN PEMODELAN DAN INFORMASI BANGUNAN').length,
+                        total_terdaftar_geo: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'TEKNIK GEOSPASIAL').length,
+                        total_terdaftar_tkr: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'TEKNIK OTOMOTIF').length,
+                        total_terdaftar_titl: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'TEKNIK KETENAGALISTRIKAN').length,
+                        total_terdaftar_tpm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['id_rombel'] == 'TEKNIK MESIN').length,
 
                         total_daftarUlang_tkj: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['id_rombel'] == 'TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI').length,
                         total_daftarUlang_dpib: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['id_rombel'] == 'DESAIN PEMODELAN DAN INFORMASI BANGUNAN').length,
@@ -351,10 +351,10 @@ const route_v1 = express.Router()
                         total_daftarUlang_titl: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['id_rombel'] == 'TEKNIK KETENAGALISTRIKAN').length,
                         total_daftarUlang_tpm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] == tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['id_rombel'] == 'TEKNIK MESIN').length,
 
-                        total_terdaftar_kategori_kejuaraan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['kategori'] == 'PRESTASI KEJUARAAN').length,
-                        total_terdaftar_kategori_ketm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['kategori'] == 'KETM').length,
-                        total_terdaftar_kategori_rapor: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['kategori'] == 'PRESTASI RAPOR UMUM').length,
-                        total_terdaftar_kategori_lain: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['kategori'] != 'KETM' && siswa['kategori'] != 'PRESTASI RAPOR UMUM' && siswa['kategori'] != 'PRESTASI KEJUARAAN').length,
+                        total_terdaftar_kategori_kejuaraan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['kategori'] == 'PRESTASI KEJUARAAN').length,
+                        total_terdaftar_kategori_ketm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['kategori'] == 'KETM').length,
+                        total_terdaftar_kategori_rapor: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['kategori'] == 'PRESTASI RAPOR UMUM').length,
+                        total_terdaftar_kategori_lain: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['kategori'] != 'KETM' && siswa['kategori'] != 'PRESTASI RAPOR UMUM' && siswa['kategori'] != 'PRESTASI KEJUARAAN').length,
 
                         total_daftarUlang_kategori_kejuaraan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['kategori'] == 'PRESTASI KEJUARAAN').length,
                         total_daftarUlang_kategori_ketm: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['kategori'] == 'KETM').length,
@@ -364,16 +364,16 @@ const route_v1 = express.Router()
                         total_daftarUlang_jk_laki: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['jk_siswa'] == 'Laki - laki').length,
                         total_daftarUlang_jk_perempuan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['jk_siswa'] == 'Perempuan').length,
 
-                        total_terdaftar_jk_laki: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['jk_siswa'] == 'Laki - laki').length,
-                        total_terdaftar_jk_perempuan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['jk_siswa'] == 'Perempuan').length,
+                        total_terdaftar_jk_laki: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['jk_siswa'] == 'Laki - laki').length,
+                        total_terdaftar_jk_perempuan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['jk_siswa'] == 'Perempuan').length,
 
                         total_daftarUlang_tinggal_ortu: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tinggal'] == 'Bersama Orang Tua').length,
                         total_daftarUlang_tinggal_kos: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tinggal'] == 'Kos').length,
                         total_daftarUlang_tinggal_wali: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['tinggal'] == 'Wali').length,
 
-                        total_terdaftar_tinggal_ortu: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tinggal'] == 'Bersama Orang Tua').length,
-                        total_terdaftar_tinggal_kos: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tinggal'] == 'Kos').length,
-                        total_terdaftar_tinggal_wali: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['tinggal'] == 'Wali').length,
+                        total_terdaftar_tinggal_ortu: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['tinggal'] == 'Bersama Orang Tua').length,
+                        total_terdaftar_tinggal_kos: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['tinggal'] == 'Kos').length,
+                        total_terdaftar_tinggal_wali: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['tinggal'] == 'Wali').length,
 
                         total_daftarUlang_transport_angkut: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['alat_transport'] == 'ANGKUTAN UMUM').length,
                         total_daftarUlang_transport_antar: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['alat_transport'] == 'ANTAR JEMPUT SEKOLAH').length,
@@ -381,11 +381,11 @@ const route_v1 = express.Router()
                         total_daftarUlang_transport_motor: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['alat_transport'] == 'MOTOR').length,
                         total_daftarUlang_transport_sepeda: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 1).filter(siswa => siswa['alat_transport'] == 'SEPEDA').length,
 
-                        total_terdaftar_transport_angkut: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'ANGKUTAN UMUM').length,
-                        total_terdaftar_transport_antar: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'ANTAR JEMPUT SEKOLAH').length,
-                        total_terdaftar_transport_jalan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'JALAN KAKI').length,
-                        total_terdaftar_transport_motor: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'MOTOR').length,
-                        total_terdaftar_transport_sepeda: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['daftar_ulang'] == 0).filter(siswa => siswa['alat_transport'] == 'SEPEDA').length
+                        total_terdaftar_transport_angkut: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['alat_transport'] == 'ANGKUTAN UMUM').length,
+                        total_terdaftar_transport_antar: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['alat_transport'] == 'ANTAR JEMPUT SEKOLAH').length,
+                        total_terdaftar_transport_jalan: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['alat_transport'] == 'JALAN KAKI').length,
+                        total_terdaftar_transport_motor: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['alat_transport'] == 'MOTOR').length,
+                        total_terdaftar_transport_sepeda: responseSiswa.data.filter(siswa => siswa['tahun_masuk'] === tahun).filter(siswa => siswa['alat_transport'] == 'SEPEDA').length
                     }
                 })
 
