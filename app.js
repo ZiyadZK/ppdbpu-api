@@ -15,13 +15,13 @@ app.use(cookieParser())
 
 app.use((req, res, next) => {
     if(req.method !== 'GET') {
-        return bodyParser.json()(req, res, next)
+        return express.json({ limit: '50mb' })(req, res, next)
     }
 
     next()
 })
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false, limit: '50mb'}))
 
 const port = process.env.PORT || 8080
 
